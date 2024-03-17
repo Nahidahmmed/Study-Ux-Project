@@ -1,0 +1,63 @@
+[
+    {
+        "id": 1,
+        "type": "digine",
+        "title": "Exploring the Wonders of Nature",
+        "semiDescription": "Discover the beauty and marvels of the natural world. Immerse yourself in the splendor of untouched landscapes and awe-inspiring wildlife.",
+        "description": "Embark on a journey of discovery as you explore the diverse ecosystems and breathtaking landscapes that make our planet unique.",
+        "user": {
+          "image": "https://i.ibb.co/1L4jfdT/3285.jpg",
+          "name": "Eva Emberd"
+        },
+        "postingDate": "March 12, 2024",
+        "post": {
+          "image": "https://i.ibb.co/HVCHgYY/2150201871.jpg",
+          "description": "Indulge your senses with a stunning view of a mountain range under a clear blue sky, offering a moment of serenity and awe."
+        },
+        "article": "make a groundbreaking discovery that could revolutionize the field of medicine. Dive into the realm of possibilities and envision a future shaped by innovation and progress. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec tellus vitae ex suscipit dapibus eu a mauris. Nam ultricies nisl et ante eleifend eleifend. Nam nec nunc eget libero commodo dapibus id et dolor. Mauris vel nunc id turpis tincidunt ultrices eu id lacus. Nulla at lorem a magna gravida gravida eget ut eros. Mauris vel ultricies nulla. In commodo volutpat odio a accumsan. Nullam suscipit dapibus vehicula. Nulla ut placerat nulla. Cras pulvinar elit et mi ullamcorper consequat. Donec id velit tincidunt, malesuada velit et, ullamcorper eros. Nullam vehicula risus in nisi malesuada, nec eleifend metus dignissim. Donec vel dui in ligula pellentesque scelerisque. Cras ultricies, lectus at congue consequat, velit felis facilisis felis, sit amet consequat elit erat nec orci. Maecenas aliquet tristique sem nec bibendum. Cras consequat sodales diam. Morbi in nunc bibendum, vestibulum neque in, rutrum est. Curabitur lobortis risus nisi, nec lobortis justo vestibulum non. Vestibulum euismod, tortor vitae tristique condimentum, lorem nunc mattis ex, ut tincidunt nulla sapien sit amet odio. Aenean tempor nulla at eros egestas feugiat.",
+        "articleImage": "https://i.ibb.co/kGjvFqC/82.jpg",
+        "conclusion": "Nature's beauty never fails to inspire awe and appreciation. Let us preserve and protect our natural world for future generations to enjoy."
+      }
+      ,
+      {
+        "id": 2,
+        "type": "Develop",
+        "title": "The Journey of a Lifetime",
+        "semiDescription": "Embark on an unforgettable adventure. Experience the thrill of discovery and the joy of new encounters.",
+        "description": "Join us on an epic journey filled with challenges, triumphs, and self-discovery. Let your wanderlust guide you to new horizons and unexpected treasures.",
+        "user": {
+          "image": "https://i.ibb.co/Ttq8kBm/young-man-wearing-blue-outfit-looking-confident.jpg",
+          "name": "Jane Smith"
+        },
+        "postingDate": "March 15, 2024",
+        "post": {
+          "image": "https://i.ibb.co/nwxcMyP/18707.jpg",
+          "description": "Awaken your sense of wonder with a traveler standing on a mountain peak, overlooking a vast landscape stretching into the horizon."
+        },
+        "article": "In the heart of the wilderness, we found ourselves amidst towering mountains and pristine lakes. Each step was a testament to the power of nature and the resilience of the human spirit Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, neque optio vel quas aperiam quis fugiat nobis necessitatibus dolor, aliquid sint illo veritatis at aspernatur! Repellendus at iste asperiores neque sed illo, quas laborum aut architecto molestiae facilis perferendis blanditiis! Maiores optio assumenda suscipit eius corporis vel quibusdam, tempora possimus provident quas nam placeat commodi, dolor minus totam distinctio eligendi quod ex odio cum delectus sit repudiandae voluptatem ducimus? Id delectus deserunt quas, culpa fuga inventore, beatae ab dignissimos aliquam deleniti quidem illum, rerum quisquam possimus saepe laudantium dolorem voluptates reiciendis quae. Voluptates maxime excepturi placeat dolorum nisi ducimus minus, magnam qui unde totam consequatur pariatur sunt illum quisquam sapiente praesentium! Alias eos tempora sed dolorem sint maiores voluptate cumque repellendus numquam, architecto nam quisquam vero, corrupti fugit quasi sapiente? A laudantium ducimus deserunt vel assumenda repellendus pariatur nam aliquid corporis! Illum, exercitationem totam nostrum ut expedita, accusantium dignissimos nemo commodi magni cumque at adipisci sunt, inventore distinctio optio laboriosam?",
+        "articleImage": "https://i.ibb.co/HzHcVck/2150010125.jpg",
+        "conclusion": "Every journey leaves an indelible mark on our souls, shaping who we are and how we see the world. May our adventures continue to inspire and enlighten."
+      }
+      ,
+      {
+        "id": 3,
+        "type": "Development",
+        "title": "Breaking News: Scientific Discovery",
+        "semiDescription": "Exciting breakthrough in the world of science. Explore the latest findings that could change the course of history.",
+        "description": "Scientists make a groundbreaking discovery that could revolutionize the field of medicine. Dive into the realm of possibilities and envision a future shaped by innovation and progress.",
+        "user": {
+          "image": "https://i.ibb.co/WKGrmX9/255.jpg",
+          "name": "Johnson Wiliom"
+        },
+        "postingDate": "March 18, 2024",
+        "post": {
+          "image": "https://i.ibb.co/5xhfyVR/2149901770.jpg",
+          "description": "Witness the dedication of scientists working in a laboratory, conducting experiments that push the boundaries of knowledge and understanding."
+        },
+        "article": "Scientists make a groundbreaking discovery that could revolutionize the field of medicine. assumenda exercitationem et veritatis beatae, quis alias libero pariatur sequi. At esse nobis veritatis ea cumque consectetur consequatur quod est eos eius. Odio labore quas illum fuga molestias mollitia modi doloribus vero dicta, accusamus aut ab quia omnis unde laboriosam odit aspernatur a dolore at, placeat, saepe nihil optio natus. Laboriosam ea harum distinctio, obcaecati nulla consequuntur facilis reprehenderit eius tenetur excepturi officiis pariatur assumenda atque fugiat id dolore velit numquam hic rem quisquam sint ipsa! Aperiam doloribus sequi rem, ipsum iste consequuntur exercitationem nemo maxime animi tenetur cumque impedit molestias odio nobis quia. Quidem delectus nostrum animi deserunt harum ducimus cumque, expedita soluta autem non. Vero, ab. Eius, recusandae consectetur laudantium natus accusamus quaerat unde cum esse, ratione veniam placeat libero harum sequi voluptatem veritatis quisquam quia ad animi tempora aperiam sunt quis vitae nesciunt! Harum magnam reprehenderit ab aut dolorem, debitis possimus delectus id excepturi laudantium.",
+        "articleImage": "https://i.ibb.co/VQjNNwV/13732.jpg",
+        "conclusion": "This discovery has the potential to change lives and shape the future of medicine. Let us embrace the possibilities and continue to support scientific endeavors that benefit humanity."
+      }
+      
+]
+
