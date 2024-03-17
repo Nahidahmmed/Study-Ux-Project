@@ -1,13 +1,13 @@
-
 import Blogs from "../../Components/Blogs/Blogs";
-import SearchTab from "../../Components/SearchTab/SearchTab";
+import Header from "../../Shared/Header/Header";
 
 export default function Home() {
-  
   return (
-    <div className="max-w-screen-xl mx-auto h-screen">
-      <Blogs/>
-      <SearchTab/>
+    <div>
+      <Header />
+      <div className="max-w-screen-xl mx-auto h-screen">
+        <Blogs />
+      </div>
     </div>
-  )
+  );
 }
