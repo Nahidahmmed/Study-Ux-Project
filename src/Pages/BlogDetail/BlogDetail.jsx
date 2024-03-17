@@ -4,13 +4,14 @@ import SGForm from "../../Components/SGForm/SGForm";
 import BlogHeader from "../../Shared/Header/BlogHeader";
 import Header from "../../Shared/Header/Header";
 
+
 export default function BlogDetail() {
   const { id } = useParams();
   const [blogs, setBlogs] = useState([]);
   const [blogData, setBlogData] = useState(null);
 
   useEffect(() => {
-    fetch("../../../public/blogs.json")
+    fetch("/blogs.json")
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data);
@@ -30,7 +31,7 @@ export default function BlogDetail() {
     <div className="w-full">
         <BlogHeader/>
         <Header/>
-      <div className="max-w-screen-xl mx-auto h-screen">
+      <div className="max-w-screen-xl mx-auto">
         <div className="flex w-full mt-28">
           {/* blogs */}
           <div className="w-[60%] px-5 pb-5  text-2xl">
@@ -62,7 +63,7 @@ export default function BlogDetail() {
             <img className="my-10" src={blogData?.articleImage} alt="" />
             <p>{blogData?.semiDescription}</p>
             <p className="text-4xl font-bold my-10">Conclusion</p>
-            <p>{blogData?.conclusion}</p>
+            <p className="mb-20">{blogData?.conclusion}</p>
           </div>
           {/* form */}
           <div className="w-[40%]">
@@ -70,6 +71,7 @@ export default function BlogDetail() {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }

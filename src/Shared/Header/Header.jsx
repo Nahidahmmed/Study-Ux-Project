@@ -149,10 +149,10 @@ const Modal2 = ({ data, closeModal }) => {
 
   return (
     <div
-      className="fixed z-[100] flex justify-center bg-black/20  duration-100 w-full"
+      className="absolute z-[100] flex justify-center bg-black/20  duration-100 w-full"
       onMouseLeave={closeModal}
     >
-      <div className="absolute w-[70%] rounded-2xl bg-white pl-3 pr-0 pb-5 text-center shadow-xl shadow-gray-300 mt-3 scale-1 opacity-1 duration-300 max-w-screen-xl">
+      <div className="absolute w-[50%] rounded-2xl bg-white pl-3 pr-0 pb-5 text-center shadow-xl shadow-gray-300 mt-3 scale-1 opacity-1 duration-300 max-w-screen-xl">
         <h1 className="my-5 text-xl font-bold text-start ml-10">
           {data.title}
         </h1>
