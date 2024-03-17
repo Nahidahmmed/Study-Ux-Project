@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
+import SearchTab from "../../Components/SearchTab/SearchTab";
 
 export default function Header() {
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
+  const [open, setOpen] = useState(false);
+  const close = () => {
+    setOpen(false);
+  };
 
   const getDataForItem = (item) => {
     switch (item) {
@@ -115,8 +120,10 @@ export default function Header() {
               className="py-2 pl-10 my-auto rounded-full"
               placeholder="Search"
               type="text"
+              onClick={() => setOpen(true)}
             />
             <FiSearch className="absolute top-[9px] left-3 my-auto text-black text-xl" />
+            {open && <Tabs open={open} close={close} />}
           </div>
         </nav>
       </div>
@@ -168,6 +175,17 @@ const Modal2 = ({ data, closeModal }) => {
           </div>
         )}
       </div>
+    </div>
+  );
+};
+
+const Tabs = ({ open, close }) => {
+  
+  if (!open) return null;
+  return (
+    <div className="fixed right-[20%] top-12 rounded-xl mt-10 shadow-md w-[550px] bg-white">
+      <SearchTab />
+      <button onClick={close}>close</button>
     </div>
   );
 };
