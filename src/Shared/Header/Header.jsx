@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import SearchTab from "../../Components/SearchTab/SearchTab";
+import { HiOutlineXMark } from "react-icons/hi2";
+import { HiOutlineArrowRight } from "react-icons/hi2";
 
 export default function Header() {
   const [showModal, setShowModal] = useState(false);
@@ -116,12 +118,22 @@ export default function Header() {
             ))}
           </ul>
           <div className="h-10 my-auto relative">
-            <input
-              className="py-2 pl-10 my-auto rounded-full"
-              placeholder="Search"
-              type="text"
-              onClick={() => setOpen(true)}
-            />
+            <div className="flex">
+              <input
+                className="py-2 pl-10 my-auto rounded-full"
+                placeholder="Search"
+                type="text"
+                onClick={() => setOpen(true)}
+              />
+              {open && (
+                <div className="border-2 w-10 h-10 rounded-full flex items-center ml-4 cursor-pointer">
+                  <HiOutlineXMark
+                    className="text-white text-2xl mx-auto"
+                    onClick={() => setOpen(false)}
+                  />
+                </div>
+              )}
+            </div>
             <FiSearch className="absolute top-[9px] left-3 my-auto text-black text-xl" />
             {open && <Tabs open={open} close={close} />}
           </div>
@@ -180,12 +192,16 @@ const Modal2 = ({ data, closeModal }) => {
 };
 
 const Tabs = ({ open, close }) => {
-  
   if (!open) return null;
   return (
-    <div className="fixed right-[20%] top-12 rounded-xl mt-10 shadow-md w-[550px] bg-white">
+    <div className="absolute right-[-20%] top-10 rounded-xl mt-10 shadow-md w-[550px] bg-white ">
       <SearchTab />
-      <button onClick={close}>close</button>
+      <div className="border-2 w-10 h-10 rounded-full flex items-center ml-auto m-3 cursor-pointer border-gray-300">
+        <HiOutlineArrowRight
+          className="text-gray-400 text-2xl mx-auto"
+        />
+      </div>
+
     </div>
   );
 };
