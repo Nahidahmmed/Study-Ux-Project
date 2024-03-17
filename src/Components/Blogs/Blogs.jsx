@@ -4,12 +4,19 @@ import { Link } from "react-router-dom";
 export default function Blogs() {
   const [blogs, setBlogs] = useState([]);
 
+  const getData =() =>{
+    fetch("/blogs.json", {headers : {
+        'content-Type': 'application/json',
+        'Accept': 'application/json'
+    }})
+    .then((res) => res.json())
+    .then((data) => {
+      setBlogs(data);
+    });
+  }
+
   useEffect(() => {
-    fetch("../../../public/blogs.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setBlogs(data);
-      });
+    getData()
   }, []);
 
   const truncateDescription = (description) => {

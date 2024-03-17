@@ -9,13 +9,19 @@ export default function BlogDetail() {
   const { id } = useParams();
   const [blogs, setBlogs] = useState([]);
   const [blogData, setBlogData] = useState(null);
+  const getData =() =>{
+    fetch("/blogs.json", {headers : {
+        'content-Type': 'application/json',
+        'Accept': 'application/json'
+    }})
+    .then((res) => res.json())
+    .then((data) => {
+      setBlogs(data);
+    });
+  }
 
   useEffect(() => {
-    fetch("/blogs.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setBlogs(data);
-      });
+    getData()
   }, []);
 
   useEffect(() => {
