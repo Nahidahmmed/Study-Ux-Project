@@ -250,7 +250,7 @@ export default function SGForm() {
             />
             <p>I would like to receive updates and offers from IDP</p>
           </div>
-          <input className="bg-[#ED2B2A] text-white text-2xl font-bold px-5 py-4 rounded-lg w-full" type="submit"  value="Help Me Study UX"/>
+          <input className="bg-[#ED2B2A] text-white text-2xl font-bold px-5 py-4 rounded-lg w-full cursor-pointer" type="submit"  value="Help Me Study UX"/>
         </form>
         
       </div>
