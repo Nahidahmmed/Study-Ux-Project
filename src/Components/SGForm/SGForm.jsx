@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { HiChevronDown } from "react-icons/hi2";
+import Swal from "sweetalert2";
 export default function SGForm() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedOption, setSelectedOption] = useState("+880");
@@ -19,6 +20,45 @@ export default function SGForm() {
     setInputValue(event.target.value);
     setShowDropdown(false);
   };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    const SGData = Object.fromEntries(formData);
+
+    fetch("https://study-ux-server.vercel.app/addSgData", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(SGData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.success) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your class is added",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          form.reset();
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong! Please try again later.",
+        });
+      });
+  };
+    
+  
   return (
     <div>
       <div className="bg-[#dddddd] rounded-xl z-10">
@@ -30,26 +70,29 @@ export default function SGForm() {
             SG can help - fill in your details <br /> and we'll call you back.
           </p>
         </div>
-        <form className=" w-full p-10">
+        <form className=" w-full p-10" onSubmit={handleFormSubmit}>
           <input
-            className="text-xl text-gray-500 border-b-[1.5px] border-gray-500 w-full bg-transparent pb-2 px-1 placeholder-gray-500"
+            className="text-xl text-gray-500 border-b-[1.5px] border-gray-500 w-full bg-transparent pb-2 px-1 placeholder-gray-500 outline-none"
             placeholder="First Name*"
             type="text"
-            name=""
+            name="firstName"
+            required
             id=""
           />
           <input
             className="text-xl text-gray-500 border-b-[1.5px] border-gray-400 w-full bg-transparent pb-2 px-1 mt-14 placeholder-gray-500"
-            placeholder="First Name*"
+            placeholder="Last Name*"
             type="text"
-            name=""
+            name="lastName"
+            required
             id=""
           />
           <input
             className="text-xl text-gray-400 border-b-[1.5px] border-gray-400 w-full bg-transparent pb-2 px-1 mt-14 placeholder-gray-500"
             placeholder="Email Address*"
-            type="text"
-            name=""
+            type="email"
+            name="email"
+            required
             id=""
           />
           <div className="relative">
@@ -94,14 +137,14 @@ export default function SGForm() {
             </label>
             <select
               id="subCategory"
-              name="category"
+              name="course"
               className="w-full border-b-[1.5px] border-gray-500 bg-transparent text-xl px-1 py-2 appearance-none"
               required
             >
               <option value="">Please Select</option>
-              <option value="mathToys">Web Development</option>
-              <option value="languageToys">Front-End Development</option>
-              <option value="scienceToys">Back-End Development</option>
+              <option value="Web Development">Web Development</option>
+              <option value="Front-End Development">Front-End Development</option>
+              <option value="Back-End Development">Back-End Development</option>
             </select>
             <div className="absolute inset-y-0 right-5 top-10 flex items-center px-2 pointer-events-none">
               <HiChevronDown className=" text-xl" />
@@ -113,14 +156,14 @@ export default function SGForm() {
             </label>
             <select
               id="subCategory"
-              name="category"
+              name="studyPlan"
               className="w-full border-b-[1.5px] border-gray-500 bg-transparent text-xl px-1 py-2 appearance-none"
               required
             >
               <option value="">Please Select</option>
-              <option value="mathToys">Web Development</option>
-              <option value="languageToys">Front-End Development</option>
-              <option value="scienceToys">Back-End Development</option>
+              <option value="Web Development">Web Development</option>
+              <option value="Front-End Development">Front-End Development</option>
+              <option value="Back-End Development">Back-End Development</option>
             </select>
             <div className="absolute inset-y-0 right-4  top-10 flex items-center px-2 pointer-events-none">
               <HiChevronDown className=" text-xl" />
@@ -132,14 +175,14 @@ export default function SGForm() {
             </label>
             <select
               id="subCategory"
-              name="category"
+              name="office"
               className="w-full border-b-[1.5px] border-gray-500 bg-transparent text-xl px-1 py-2 appearance-none"
               required
             >
               <option value="">Please Select</option>
-              <option value="mathToys">Web Development</option>
-              <option value="languageToys">Front-End Development</option>
-              <option value="scienceToys">Back-End Development</option>
+              <option value="Web Development">Web Development</option>
+              <option value="Front-End Development">Front-End Development</option>
+              <option value="Back-End Development">Back-End Development</option>
             </select>
             <div className="absolute inset-y-0 right-4  top-10 flex items-center px-2 pointer-events-none">
               <HiChevronDown className=" text-xl" />
@@ -151,14 +194,14 @@ export default function SGForm() {
             </label>
             <select
               id="subCategory"
-              name="category"
+              name="myCourse"
               className="w-full border-b-[1.5px] border-gray-500 bg-transparent text-xl px-1 py-2 appearance-none"
               required
             >
               <option value="">Please Select</option>
-              <option value="mathToys">Web Development</option>
-              <option value="languageToys">Front-End Development</option>
-              <option value="scienceToys">Back-End Development</option>
+              <option value="Web Development">Web Development</option>
+              <option value="Front-End Development">Front-End Development</option>
+              <option value="Back-End Development">Back-End Development</option>
             </select>
             <div className="absolute inset-y-0 right-4  top-10 flex items-center px-2 pointer-events-none">
               <HiChevronDown className=" text-xl" />
@@ -170,14 +213,14 @@ export default function SGForm() {
             </label>
             <select
               id="subCategory"
-              name="category"
+              name="level"
               className="w-full border-b-[1.5px] border-gray-500 bg-transparent text-xl px-1 py-2 appearance-none"
               required
             >
-              <option value="">Please Select</option>
-              <option value="mathToys">Web Development</option>
-              <option value="languageToys">Front-End Development</option>
-              <option value="scienceToys">Back-End Development</option>
+             <option value="">Please Select</option>
+              <option value="Web Development">Web Development</option>
+              <option value="Front-End Development">Front-End Development</option>
+              <option value="Back-End Development">Back-End Development</option>
             </select>
             <div className="absolute inset-y-0 right-4  top-10 flex items-center px-2 pointer-events-none">
               <HiChevronDown className=" text-xl" />
@@ -209,6 +252,7 @@ export default function SGForm() {
           </div>
           <input className="bg-[#ED2B2A] text-white text-2xl font-bold px-5 py-4 rounded-lg w-full" type="submit"  value="Help Me Study UX"/>
         </form>
+        
       </div>
     </div>
   );

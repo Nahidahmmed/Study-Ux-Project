@@ -8,6 +8,7 @@ import './index.css'
 import Layout from './Layout/Layout';
 import Home from './Pages/Home/Home';
 import BlogDetail from './Pages/BlogDetail/BlogDetail';
+import SgData from './Pages/SgData/SgData';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home/>
+      },
+      {
+        path: "/SGTable",
+        element: <SgData/>
       },
       {
         path: '/detail/:id',

@@ -52,7 +52,7 @@ export default function SearchTab() {
             key={tab.id}
             className={`${
               activeTab.id === tab.id && "bg-white rounded-t-xl"
-            } py-2 px-4 text-lg focus:outline-none w-36`}
+            } py-2 px-4 lg:text-lg md:text-lg text-xs focus:outline-none w-36`}
             onClick={() => handleTabClick(tab)}
           >
             <p>{tab.title}</p>
@@ -70,12 +70,12 @@ export default function SearchTab() {
               placeholder="Search Keywords"
               className="mt-2 pl-5 p-2 border-b border-gray-300 w-full focus:outline-none focus:border-blue-500 text-gray-400"
             />
-            <FiSearch className="absolute top-[128px] left-3 text-xl text-gray-400" />
+            <FiSearch className="absolute lg:top-[128px] md:top-[128px] top-[104px] left-3 text-xl text-gray-400" />
 
             {suggestions.length > 0 && (
-              <ul className="text-lg px-3 pt-3 bg-white rounded-b-xl">
+              <ul className="lg:text-lg md:text-lg text-base px-3 pt-3 bg-white rounded-b-xl">
                 {suggestions.slice(0, 8).map((blog, index) => (
-                  <li key={index} onClick={() => handleSuggestionClick(blog)} className="mr-40">
+                  <li key={index} onClick={() => handleSuggestionClick(blog)} className="lg:mr-40 md:mr-40 mr-24">
                     <Link
                       to={`/detail/${blog._id}`}
                       className="pb-2 text-gray-400"
