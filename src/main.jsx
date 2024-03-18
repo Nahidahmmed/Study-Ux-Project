@@ -21,7 +21,9 @@ const router = createBrowserRouter([
       {
         path: '/detail/:id',
         element: <BlogDetail/>,
-      }
+        loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
+      },
+      
     ]
   },
 ]);

@@ -125,14 +125,6 @@ export default function Header() {
                 type="text"
                 onClick={() => setOpen(true)}
               />
-              {open && (
-                <div className="border-2 w-10 h-10 rounded-full flex items-center ml-4 cursor-pointer">
-                  <HiOutlineXMark
-                    className="text-white text-2xl mx-auto"
-                    onClick={() => setOpen(false)}
-                  />
-                </div>
-              )}
             </div>
             <FiSearch className="absolute top-[9px] left-3 my-auto text-black text-xl" />
             {open && <Tabs open={open} close={close} />}
@@ -194,14 +186,36 @@ const Modal2 = ({ data, closeModal }) => {
 const Tabs = ({ open, close }) => {
   if (!open) return null;
   return (
-    <div className="absolute right-[-20%] top-10 rounded-xl mt-10 shadow-md w-[550px] bg-white ">
-      <SearchTab />
-      <div className="border-2 w-10 h-10 rounded-full flex items-center ml-auto m-3 cursor-pointer border-gray-300">
-        <HiOutlineArrowRight
-          className="text-gray-400 text-2xl mx-auto"
-        />
-      </div>
+    <div
+      className={`fixed z-[100] flex items-center justify-center ${
+        open ? "opacity-1 visible" : "invisible opacity-0"
+      } inset-0 bg-black/20 backdrop-blur-sm duration-100`}
+    >
+      <div
+        className={`absolute max-w-md rounded-sm bg-white p-3 pb-5 text-center drop-shadow-2xl ${
+          open
+            ? "scale-1 opacity-1 duration-300"
+            : "scale-0 opacity-0 duration-150"
+        } `}
+      >
+        {open && (
+          <div className="border-2 w-10 h-10 rounded-full flex items-center ml-4 cursor-pointer">
+            <HiOutlineXMark
+              className="text-white text-2xl mx-auto"
+              onClick={close}
+            />
+          </div>
+        )}
 
+        <SearchTab />
+      </div>
     </div>
   );
 };
+{
+  /* <HiOutlineArrowRight className="text-gray-400 text-2xl mx-auto" />
+      
+      
+      
+ */
+}

@@ -16,19 +16,13 @@ export default function SearchTab() {
   };
 
   const [blogs, setBlogs] = useState([]);
-  const getData =() =>{
-    fetch("/blogs.json", {headers : {
-        'content-Type': 'application/json',
-        'Accept': 'application/json'
-    }})
+
+  useEffect(() => {
+    fetch("http://localhost:5000/blogs")
     .then((res) => res.json())
     .then((data) => {
       setBlogs(data);
     });
-  }
-
-  useEffect(() => {
-    getData()
   }, []);
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -83,7 +77,7 @@ export default function SearchTab() {
                 {suggestions.slice(0, 8).map((blog, index) => (
                   <li key={index} onClick={() => handleSuggestionClick(blog)}>
                     <Link
-                      to={`/detail/${blog.id}`}
+                      to={`/detail/${blog._id}`}
                       className="pb-2 text-gray-400"
                     >
                       {blog.title}

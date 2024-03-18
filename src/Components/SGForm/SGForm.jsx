@@ -30,7 +30,7 @@ export default function SGForm() {
             SG can help - fill in your details <br /> and we'll call you back.
           </p>
         </div>
-        <form className=" w-full p-5">
+        <form className=" w-full p-10">
           <input
             className="text-xl text-gray-500 border-b-[1.5px] border-gray-500 w-full bg-transparent pb-2 px-1 placeholder-gray-500"
             placeholder="First Name*"
@@ -207,6 +207,7 @@ export default function SGForm() {
             />
             <p>I would like to receive updates and offers from IDP</p>
           </div>
+          <input className="bg-[#ED2B2A] text-white text-2xl font-bold px-5 py-4 rounded-lg w-full" type="submit"  value="Help Me Study UX"/>
         </form>
       </div>
     </div>

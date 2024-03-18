@@ -1,38 +1,13 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+
+import { useLoaderData } from "react-router-dom";
 import SGForm from "../../Components/SGForm/SGForm";
 import BlogHeader from "../../Shared/Header/BlogHeader";
 import Header from "../../Shared/Header/Header";
 
 
 export default function BlogDetail() {
-  const { id } = useParams();
-  const [blogs, setBlogs] = useState([]);
-  const [blogData, setBlogData] = useState(null);
-  const getData =() =>{
-    fetch("/blogs.json", {headers : {
-        'content-Type': 'application/json',
-        'Accept': 'application/json'
-    }})
-    .then((res) => res.json())
-    .then((data) => {
-      setBlogs(data);
-    });
-  }
-
-  useEffect(() => {
-    getData()
-  }, []);
-
-  useEffect(() => {
-    const foundBlog = blogs.find((blog) => blog.id === parseInt(id));
-    if (foundBlog) {
-      setBlogData(foundBlog);
-    } else {
-      setBlogData(null);
-    }
-  }, [id, blogs]);
-  console.log(blogData);
+  const blogData = useLoaderData();
+  console.log(blogData)
   return (
     <div className="w-full">
         <BlogHeader/>
