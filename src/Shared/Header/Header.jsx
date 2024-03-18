@@ -168,7 +168,7 @@ export default function Header() {
             ].map((item, index) => (
               <li
                 key={index}
-                
+                onMouseEnter={() => handleMouseEnter(item)}
                 className="cursor-pointer px-5 py-2 h-16 text-lg flex items-center transition duration-300 ease-in-out hover:bg-orange-400 hover:text-white"
               >
                 {item}
@@ -203,7 +203,7 @@ const Modal2 = ({ data, closeModal }) => {
       className="absolute z-[100] flex justify-center bg-black/20  duration-100 w-full"
       onMouseLeave={closeModal}
     >
-      <div className="absolute w-[50%] rounded-2xl bg-white pl-3 pr-0 pb-5 text-center shadow-xl shadow-gray-300 mt-3 scale-1 opacity-1 duration-300 max-w-screen-xl">
+      <div className="absolute lg:w-[50%] md:w-[50%] w-[95%] rounded-2xl bg-white pl-3 pr-0 pb-5 text-center shadow-xl shadow-gray-300 mt-3 scale-1 opacity-1 duration-300 max-w-screen-xl">
         <h1 className="my-5 text-xl font-bold text-start ml-10">
           {data.title}
         </h1>
@@ -211,7 +211,7 @@ const Modal2 = ({ data, closeModal }) => {
           <p className="px-1 mb-3 text-sm opacity-80">{data.content}</p>
         )}
         {data.infos && (
-          <div className="grid grid-cols-4">
+          <div className="grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2">
             {data.infos.map((info, index) => (
               <div key={index} className="w-[80%] mx-auto">
                 <div className="text-start">
@@ -227,7 +227,7 @@ const Modal2 = ({ data, closeModal }) => {
               </div>
             ))}
             <div>
-              <ul className="text-start text-lg font-medium cursor-pointer space-y-2">
+              <ul className="text-start text-lg font-medium cursor-pointer space-y-2 lg:mt-0 md:mt-0 mt-3 lg:ml-0 md:ml-0 ml-4">
                 <li>Study UX in SG</li>
                 <li>Study UI in SG</li>
                 <li>Study Nothing</li>
