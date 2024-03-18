@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       {
         path: '/detail/:id',
         element: <BlogDetail/>,
-        loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
+        loader: ({ params }) => fetch(`https://study-ux-server.vercel.app/blogs/${params.id}`)
       },
       
     ]

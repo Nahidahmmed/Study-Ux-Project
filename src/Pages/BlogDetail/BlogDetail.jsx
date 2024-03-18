@@ -13,9 +13,9 @@ export default function BlogDetail() {
         <BlogHeader/>
         <Header/>
       <div className="max-w-screen-xl mx-auto">
-        <div className="flex w-full mt-28">
+        <div className="lg:flex md:flex w-full mt-28">
           {/* blogs */}
-          <div className="w-[60%] px-5 pb-5  text-2xl">
+          <div className="lg:w-[60%] md:w-[60%] w-full px-5 pb-5  text-2xl">
             <p className="uppercase font-bold text-base text-red-500">
               {blogData?.type}
             </p>
@@ -47,7 +47,7 @@ export default function BlogDetail() {
             <p className="mb-20">{blogData?.conclusion}</p>
           </div>
           {/* form */}
-          <div className="w-[40%]">
+          <div className="lg:w-[40%] md:w-[40%] w-full p-2">
             <SGForm />
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import SearchTab from "../../Components/SearchTab/SearchTab";
 import { HiOutlineXMark } from "react-icons/hi2";
@@ -11,7 +11,22 @@ export default function Header() {
   const close = () => {
     setOpen(false);
   };
+  const [dropDownState, setDropDownState] = useState(false);
+  const dropDownMenuRef = useRef();
 
+  useEffect(() => {
+    const closeDropDown = (e) => {
+      if (!dropDownMenuRef?.current?.contains(e?.target)) {
+        setDropDownState(false);
+      }
+    };
+
+    document.addEventListener("mousedown", closeDropDown);
+
+    return () => {
+      document.removeEventListener("mousedown", closeDropDown);
+    };
+  }, []);
   const getDataForItem = (item) => {
     switch (item) {
       case "Study abroad":
@@ -117,7 +132,52 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <div className="h-10 my-auto relative">
+          
+            {open && <Tabs open={open} close={close} />}
+          <div
+            ref={dropDownMenuRef}
+            onClick={() => setDropDownState(!dropDownState)}
+            className="relative flex transition-transform md:hidden lg:mt-0 md:mt-0 mt-5"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="cursor-pointer"
+            >
+              {" "}
+              <line x1="4" x2="20" y1="12" y2="12" />{" "}
+              <line x1="4" x2="20" y1="6" y2="6" />
+              <line x1="4" x2="20" y1="18" y2="18" />{" "}
+            </svg>
+            {dropDownState && (
+              <ul className=" z-10  gap-2  bg-[#393E46]  absolute left-0 top-11 flex w-[200px] flex-col  rounded-lg   text-base ">
+                {[
+              "Study abroad",
+              "What we do?",
+              "Destinations",
+              "Find a course",
+              "Student Essential Services",
+              "IELTS",
+            ].map((item, index) => (
+              <li
+                key={index}
+                
+                className="cursor-pointer px-5 py-2 h-16 text-lg flex items-center transition duration-300 ease-in-out hover:bg-orange-400 hover:text-white"
+              >
+                {item}
+              </li>
+            ))}
+              </ul>
+            )}
+          </div>
+          <div className="h-10 my-auto relative ml-auto lg:p-0 md:p-0 pt-3">
             <div className="flex">
               <input
                 className="py-2 pl-10 my-auto rounded-full"
@@ -126,8 +186,7 @@ export default function Header() {
                 onClick={() => setOpen(true)}
               />
             </div>
-            <FiSearch className="absolute top-[9px] left-3 my-auto text-black text-xl" />
-            {open && <Tabs open={open} close={close} />}
+            <FiSearch className="absolute top-[9px] left-3 my-auto text-black text-xl lg:mt-0 md:mt-0 mt-3" />
           </div>
         </nav>
       </div>
@@ -189,17 +248,17 @@ const Tabs = ({ open, close }) => {
     <div
       className={`fixed z-[100] flex items-center justify-center ${
         open ? "opacity-1 visible" : "invisible opacity-0"
-      } inset-0 bg-black/20 backdrop-blur-sm duration-100`}
+      } inset-0 bg-black/25 backdrop-blur-sm duration-100`}
     >
       <div
-        className={`absolute max-w-md rounded-sm bg-white p-3 pb-5 text-center drop-shadow-2xl ${
+        className={`absolute xl:w-[30.2%] lg:w-[30.2%] md:w-[32%] w-[95%] bg-white rounded-xl pb-5 text-center drop-shadow-2xl ${
           open
             ? "scale-1 opacity-1 duration-300"
             : "scale-0 opacity-0 duration-150"
         } `}
       >
         {open && (
-          <div className="border-2 w-10 h-10 rounded-full flex items-center ml-4 cursor-pointer">
+          <div className="absolute right-0 -top-14 border-2 w-10 h-10 rounded-full flex items-center ml-4 cursor-pointer">
             <HiOutlineXMark
               className="text-white text-2xl mx-auto"
               onClick={close}
@@ -208,14 +267,10 @@ const Tabs = ({ open, close }) => {
         )}
 
         <SearchTab />
+        <div className="ml-auto w-10 h-10 rounded-full border-2 flex items-center mt-5 mx-5">
+          <HiOutlineArrowRight className="text-gray-400 text-2xl mx-auto items-center" />
+        </div>
       </div>
     </div>
   );
 };
-{
-  /* <HiOutlineArrowRight className="text-gray-400 text-2xl mx-auto" />
-      
-      
-      
- */
-}
