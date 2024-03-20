@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "../../Shared/Header/Header";
-
+import { DownloadTableExcel } from 'react-export-table-to-excel';
 export default function SgData() {
     const [data, setData] = useState([]);
-
+    const tableRef = useRef(null);
     useEffect(() => {
         fetch("https://study-ux-server.vercel.app/SGData")
             .then((res) => res.json())
@@ -18,11 +18,20 @@ export default function SgData() {
     return (
         <div className="">
             <Header/>
+            <DownloadTableExcel
+                    filename="users table"
+                    sheet="users"
+                    currentTableRef={tableRef.current}
+                >
+
+                   <button className="text-2xl text-white bg-black px-4 py-2 rounded-lg ml-[10%] my-10 w-48 "> Export excel </button>
+
+                </DownloadTableExcel>
             <div className="h-screen">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <h1 className="text-3xl font-semibold mb-4">SG Data</h1>
                     <div className="overflow-x-auto">
-                        <table className="min-w-full">
+                        <table className="min-w-full" ref={tableRef}>
                             <thead>
                                 <tr>
                                     <th className="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
@@ -52,7 +61,7 @@ export default function SgData() {
                                     <th className="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                         Level
                                     </th>
-                                    {/* Add more table headings as needed */}
+                                   
                                 </tr>
                             </thead>
                             <tbody className="bg-white">
@@ -85,7 +94,6 @@ export default function SgData() {
                                         <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                             {row.level}
                                         </td>
-                                        {/* Add more table cells for additional fields */}
                                     </tr>
                                 ))}
                             </tbody>
